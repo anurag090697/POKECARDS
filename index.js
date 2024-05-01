@@ -9,13 +9,15 @@ let pokeList = [];
 let limit = 20;
 let offset = 0;
 let buttonloadMore = document.getElementById("loadMore");
+let totalPokemonCount;
+
 let pokeUrl =
   "https://pokeapi.co/api/v2/pokemon?limit=" + limit + "&offset=" + offset;
+
 async function getData(pokeUrl) {
   try {
     let firstStep = await fetch(pokeUrl);
     let secondStep = await firstStep.json();
-    // console.log(secondStep);
 
     secondStep.results.forEach(async (pokemon) => {
       cardsDiv.innerHTML = "";
@@ -28,7 +30,8 @@ async function getData(pokeUrl) {
       let url = pokemon.url;
       const response = await fetch(url);
       let detailedInfo = await response.json();
-      console.log(detailedInfo);
+
+      //   console.log(detailedInfo);
       let cardCover = document.createElement("div");
       cardCover.classList.add("flip-card");
 
@@ -100,22 +103,52 @@ async function getData(pokeUrl) {
 
       cardCover.append(pokeCard);
       cardsDiv.append(cardCover);
-      // displayPokemons(detailedInfo);
+      buttonloadMore.style.display = "inline-Block";
     });
+
+    // Assign totalPokemonCount after the loop
+    totalPokemonCount = secondStep.results.length;
   } catch (error) {
     console.error("Error fetching data:", error);
   }
 }
 
-// function displayPokemons(detailedInfo) {
+function filterByType(type) {
+  pokeUrl = `https://pokeapi.co/api/v2/pokemon?type=${type}`;
+  offset = 0;
+  getData(pokeUrl);
+}
 
-// }
+buttonFilter.addEventListener("click", () => {
+  let typeVal = typeSelect.value;
+  console.log("hiiii");
+  filterByType(typeVal);
+});
+
+function filterByInput(searchTerm) {
+  pokeUrl = `https://pokeapi.co/api/v2/pokemon?search=${searchTerm}`;
+  offset = 0;
+  getData(pokeUrl);
+}
+
+searchPoke.addEventListener("keyup", (event) => {
+  filterByInput(event.target.value);
+});
+
 buttonloadMore.addEventListener("click", async () => {
-  offset += limit;
+  if (offset >= totalPokemonCount) {
+    buttonloadMore.disabled = true;
+    return;
+  }
+
+  offset = offset + limit;
+  pokeUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
   await getData(pokeUrl);
 });
 
 buttonReset.addEventListener("click", async () => {
+  console.log("hiiii");
+  offset = 0;
   pokeUrl = "https://pokeapi.co/api/v2/pokemon";
   await getData(pokeUrl);
 });

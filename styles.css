@@ -140,7 +140,7 @@ body {
   border-radius: 12px;
   color: #FFFFFF;
   cursor: pointer;
-  display: inline-block;
+  display: none;
   font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 500;

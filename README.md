@@ -1,13 +1,12 @@
-
 # PokeCards
 
 PokeCards is a web application that fetches Pokémon data from the PokeAPI and dynamically creates flip cards to display them. Each card contains basic Pokémon information on the front and detailed stats on the back.
 
 <!-- ![PokeCards Preview](/assets/preview.png) -->
 
-## Demo
+## Hosted Link
 
-You can see a live demo of PokeCards [https://anurag090697.github.io/POKECARDS/](#).
+[Click here to view the page](https://anurag090697.github.io/POKECARDS/)
 
 ## Features
 
@@ -16,7 +15,6 @@ You can see a live demo of PokeCards [https://anurag090697.github.io/POKECARDS/]
 - Displays basic information on the front of the card (Pokémon ID, name, image, and type).
 - Displays detailed stats on the back of the card (weight, height, and base stats).
 - Provides a loader animation while fetching data.
-
 
 ## Usage
 

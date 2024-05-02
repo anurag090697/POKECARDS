@@ -124,6 +124,8 @@ body {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  font-weight: 700;
+  font-size: 18px;
   /* background-color: yellowgreen; */
 }
 
@@ -283,6 +285,15 @@ body {
   );
   border-radius: 15px;
   color: black;
+}
+.dark > div {
+  background: radial-gradient(
+    circle,
+    rgba(224, 0, 178, 1) 7%,
+    rgba(61, 61, 61, 1) 69%
+  );
+  border-radius: 15px;
+  color: white;
 }
 .button-62 {
   background: linear-gradient(to bottom right, #ef4765, #ff9a5a);

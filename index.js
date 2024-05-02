@@ -140,7 +140,7 @@ async function filterByType(type) {
   //   let data = await getApiData(url);
   //   cardsDiv.innerHTML = "";
   //   displayPokemons(data);
-  offset = 600;
+  offset = 300;
   limit = 150;
   const url =
     "https://pokeapi.co/api/v2/pokemon?limit=" + limit + "&offset=" + offset;
@@ -182,7 +182,7 @@ async function filterByInput(searchTerm) {
   //   cardsDiv.innerHTML = "";
   //   displayPokemons(data);
   searchTerm = searchTerm.toLowerCase();
-  offset = 600;
+  offset = 300;
   limit = 150;
   const url =
     "https://pokeapi.co/api/v2/pokemon?limit=" + limit + "&offset=" + offset;
